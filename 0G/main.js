@@ -19,14 +19,22 @@ function toggleSubLinks(element) {
 
 // === SALIN TEKS DAN TAMPILKAN 'Copied!' ===
 function copyText(target) {
+  console.log("🔧 copyText() triggered");
+
   const box = target.closest('.code-box') || target;
+  if (!box) return console.warn("⚠️ .code-box not found");
 
   const text = box.querySelector('.copy-text')?.innerText?.trim();
   const label = box.querySelector('.copied-label');
   const icon = box.querySelector('.copy-icon');
   const button = box.querySelector('.copy-button');
 
-  if (!text) return;
+  if (!text) {
+    console.warn("⚠️ copy-text not found or empty");
+    return;
+  }
+
+  console.log("📋 Text to copy:", text);
 
   navigator.clipboard.writeText(text).then(() => {
     if (label) label.style.opacity = '1';
@@ -57,10 +65,12 @@ function copyText(target) {
   });
 }
 
-// === JALANKAN SETELAH HALAMAN SIAP ===
+// === JALANKAN SAAT DOM SUDAH SIAP ===
 document.addEventListener("DOMContentLoaded", () => {
-  // Highlight link aktif berdasarkan nama file
-  const current = window.location.pathname.split("/").pop();
+  console.log("✅ DOM loaded — JS aktif");
+
+  // Tandai link sidebar yang aktif berdasarkan halaman
+  const current = window.location.pathname.split("/").filter(Boolean).pop();
   const links = document.querySelectorAll("aside a");
 
   links.forEach(link => {
@@ -70,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Tambahkan klik untuk salin ke setiap code-box
+  // Tambahkan event listener salin ke setiap .code-box
   document.querySelectorAll('.code-box').forEach(box => {
     box.addEventListener('click', (e) => {
       const isButton = e.target.closest('.copy-button');
@@ -78,5 +88,12 @@ document.addEventListener("DOMContentLoaded", () => {
         copyText(box);
       }
     });
+
+    const button = box.querySelector('.copy-button');
+    if (button) {
+      button.addEventListener('click', () => {
+        copyText(button);
+      });
+    }
   });
 });
