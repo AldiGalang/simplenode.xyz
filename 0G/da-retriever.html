@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RisolMayo Docs</title>
+  <link rel="stylesheet" href="aside.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="global.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Sidebar Kiri OK-->
+  <aside>
+    <h2>SimpleNode Docs</h2>
+    <ul>
+      <li><strong>0G Labs</strong></li>
+  
+      <li><a href="storage-node.html">Storage Node</a></li>
+      <li><a href="da-node.html">DA Node</a></li>
+      <li><a href="storage-kv.html">Storage KV</a></li>
+      <li><a href="da-client.html">DA Client</a></li>
+      <li><a href="da-retriever.html">DA Retriever</a></li>
+    </ul>
+  </aside>
+  
+  
+
+  <!-- Konten Utama Storage -->
+  <main class="storage-node">
+    <section id="install-section">
+      <h1>Install 0G DA Retriever Node (Optional)</h1>
+  
+      <div class="step">
+        <h2>Step 1: Requirements</h2>
+        <ul class="requirements">
+          <li>
+            <strong>Faucet A0GI</strong> — if you don’t have A0GI, you can claim at:
+            <a href="https://faucet.0g.ai/" target="_blank">https://faucet.0g.ai/</a>
+          </li>
+        </ul>
+  
+        <hr class="divider">
+  
+        <h2>Step 2: Install or Delete</h2>
+        <p>Run this script to install or delete the storage node:</p>
+  
+        <div class="code-box">
+          <span class="copy-text">
+            apt install curl -y && bash <(curl -s https://raw.githubusercontent.com/AldiGalang/0g/refs/heads/main/da-retriever.sh)
+          </span>
+          <div class="copy-button" onclick="copyText(this)">
+            <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 16h8a2 2 0 002-2V8a2 2 0 00-2-2H8a2 2 0 00-2 2v6a2 2 0 002 2z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M16 16v1a2 2 0 002 2H8a2 2 0 01-2-2v-1" />
+            </svg>
+          </div>
+          <div class="copied-label">Copied!</div>
+        </div>
+  
+        <hr class="divider">
+      </section>
+    <!-- Footer Next and Back -->
+    <div class="spacer"></div> <!-- fleksibel spacer -->
+    <div class="navigation-buttons">
+      <a href="da-client.html" class="nav-button prev">
+        <span>← Previous</span>
+        <strong>DA Client Node</strong>
+      </a>
+  </div>
+  </main>
+  
+  
+  <!-- JavaScript -->
+  <script src="aside.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
