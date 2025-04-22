@@ -17,7 +17,7 @@ function scrollToSection(id, el) {
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    const current = window.location.pathname.split("/").pop(); // ambil nama file .html
+    const current = window.location.pathname.split("/").filter(Boolean).pop();
     const links = document.querySelectorAll("aside a");
   
     links.forEach(link => {
