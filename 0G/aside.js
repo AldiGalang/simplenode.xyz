@@ -18,7 +18,7 @@ function toggleSubLinks(element) {
 
 // --- MODIFIKASI DISINI ---
 function loadPage(name) {
-  fetch(`pages/${name}.html`)
+  fetch(`0G/pages/${name}.html`)
     .then(res => res.text())
     .then(html => {
       document.getElementById('content-area').innerHTML = html;
