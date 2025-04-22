@@ -1,3 +1,4 @@
+// === SCROLL KE SECTION & ACTIVE-LINK ===
 function scrollToSection(id, el) {
   const section = document.getElementById(id);
   if (section) section.scrollIntoView({ behavior: 'smooth' });
@@ -16,45 +17,47 @@ function toggleSubLinks(element) {
   if (sub) sub.classList.add('show');
 }
 
-// --- MODIFIKASI DISINI ---
+// === LOAD PAGE SECARA DINAMIS TANPA RELOAD ===
 function loadPage(name) {
-  fetch(`pages/${name}.html`)
-    .then(res => res.text())
+  const target = `pages/${name}.html`;
+
+  fetch(target)
+    .then(res => {
+      if (!res.ok) throw new Error(`Failed to fetch ${target} (status: ${res.status})`);
+      return res.text();
+    })
     .then(html => {
-      document.getElementById('content-area').innerHTML = html;
+      const container = document.getElementById('content-area');
+      container.innerHTML = html;
+
       history.pushState(null, "", `#${name}`);
 
-      // Optional: Update active sidebar
+      // Update active class di sidebar
       document.querySelectorAll("aside a").forEach(link => {
         link.classList.remove("active-link");
         if (link.getAttribute("onclick")?.includes(name)) {
           link.classList.add("active-link");
         }
       });
+
+      // Re-bind copyText ke tombol copy jika ada
+      if (typeof copyText === "function") {
+        document.querySelectorAll('.code-box').forEach(box => {
+          const button = box.querySelector('.copy-button');
+          if (button) {
+            button.onclick = () => copyText(button);
+          }
+        });
+      }
     })
     .catch(err => {
-      document.getElementById('content-area').innerHTML = `<p>Error loading ${name} page</p>`;
+      document.getElementById('content-area').innerHTML = `<p style="color:red;">❌ Error loading <code>${name}</code>: ${err.message}</p>`;
       console.error("❌ Failed to load page:", err);
     });
 }
 
-      // Update active link
-      document.querySelectorAll("aside a").forEach(link => {
-        link.classList.remove("active-link");
-        const href = link.getAttribute("href");
-        if (href && href.includes(name)) {
-          link.classList.add("active-link");
-        }
-      });
-    })
-    .catch(err => {
-      document.getElementById('content-area').innerHTML = "<p>Error loading page</p>";
-      console.error("❌ Failed to load page:", err);
-    });
-}
-
-// Gabungkan semua DOMContentLoaded jadi satu
+// === LOAD DEFAULT PAGE SAAT PERTAMA KALI BUKA ===
 document.addEventListener("DOMContentLoaded", () => {
-  const page = location.hash.replace("#", "") || "overview";
-  loadPage(page);
+  const defaultPage = location.hash.replace("#", "") || "overview";
+  loadPage(defaultPage);
 });
