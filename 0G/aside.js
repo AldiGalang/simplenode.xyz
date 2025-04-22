@@ -23,6 +23,12 @@ function loadPage(name) {
     .then(html => {
       document.getElementById('content-area').innerHTML = html;
       history.pushState(null, "", `#${name}`);
+    })
+    .catch(err => {
+      document.getElementById('content-area').innerHTML = "<p>Error loading page</p>";
+      console.error("❌ Failed to load page:", err);
+    });
+}
 
       // Update active link
       document.querySelectorAll("aside a").forEach(link => {
