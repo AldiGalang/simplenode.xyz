@@ -18,14 +18,22 @@ function toggleSubLinks(element) {
 
 // --- MODIFIKASI DISINI ---
 function loadPage(name) {
-  fetch(`0G/pages/${name}.html`)
+  fetch(`pages/${name}.html`)
     .then(res => res.text())
     .then(html => {
       document.getElementById('content-area').innerHTML = html;
       history.pushState(null, "", `#${name}`);
+
+      // Optional: Update active sidebar
+      document.querySelectorAll("aside a").forEach(link => {
+        link.classList.remove("active-link");
+        if (link.getAttribute("onclick")?.includes(name)) {
+          link.classList.add("active-link");
+        }
+      });
     })
     .catch(err => {
-      document.getElementById('content-area').innerHTML = "<p>Error loading page</p>";
+      document.getElementById('content-area').innerHTML = `<p>Error loading ${name} page</p>`;
       console.error("❌ Failed to load page:", err);
     });
 }
