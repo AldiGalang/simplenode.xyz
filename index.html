@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+    }
+
+    body {
+      background: url(Plane.jpg) no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 16px;
+      margin: 1rem auto;
+      max-width: 1100px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #facc15;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      margin-left: 30px;
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 500;
+      transition: 0.3s;
+      font-size: 1.2rem;
+    }
+
+    nav a:hover {
+      color: #00ffff;
+    }
+
+    main {
+      text-align: center;
+      margin-top: 8rem;
+    }
+
+    .typing-container {
+      display: inline-block;
+      margin: 0 auto;
+      white-space: nowrap;
+      opacity: 1;
+    }
+
+
+    @keyframes typingSmooth {
+      0% {
+        clip-path: inset(0 100% 0 0);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        clip-path: inset(0 0 0 0);
+        opacity: 1;
+      }
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #00ffff, #8a2be2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .highlight-yellow {
+      color: #facc15;
+      font-style: italic;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #ddd;
+    }
+
+    .glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0,255,255,0.3), transparent 70%);
+      border-radius: 50%;
+      filter: blur(120px);
+      z-index: 0;
+    }
+
+    .glow1 {
+      top: -100px;
+      left: -150px;
+    }
+
+    .glow2 {
+      bottom: -100px;
+      right: -100px;
+    }
+
+    .testnets-section {
+      max-width: 1200px;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 16px;
+      backdrop-filter: blur(8px);
+    }
+
+    .testnets-section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #fff;
+    }
+
+    .testnets-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .testnet-card {
+      background: #111827;
+      padding: 1.5rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 12px rgba(0, 255, 255, 0.05);
+      width: 280px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testnet-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    }
+
+    .testnet-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .testnet-info {
+      font-size: 0.95rem;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .testnet-card button {
+      background-color: #facc15;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      font-weight: bold;
+      align-self: flex-start;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeInUp 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    .fade-in:nth-child(1) { animation-delay: 0.3s; }
+    .fade-in:nth-child(2) { animation-delay: 0.5s; }
+    .fade-in:nth-child(3) { animation-delay: 0.7s; }
+    .fade-in:nth-child(4) { animation-delay: 0.9s; }
+
+    .logo-img {
+  height: 50px;
+  vertical-align: middle;
+}
+
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 50,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="glow glow1"></div>
+  <div class="glow glow2"></div>
+
+  <header>
+    <img src="profil.png" alt="SimpleNode" class="logo-img" />
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#node">Tutorial</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main style="margin-bottom: 6rem;">
+    <h1>
+      <span class="typing-container">
+        <span class="gradient-text">Welcome to</span>
+        <img src="profil.png" alt="SimpleNode" class="logo-img" />      
+      </h1>
+    <p>Tempat terbaik untuk belajar node dan teknologi Web3!</p>
+  </main>
+
+  <section id="node" class="testnets-section" style="margin: 25rem auto 0; display: flex; flex-direction: column; align-items: center;">
+    <h2>Node</h2>
+    <div class="testnets-grid">
+      <div class="testnet-card">
+        <h3>0G Labs</h3>
+        <div class="testnet-info">
+          • Active<br>
+          • $325M Raised
+        </div>
+        <a href="storage-node.html">
+          <button>View Details</button>
+        </a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
