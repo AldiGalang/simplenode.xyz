@@ -26,4 +26,21 @@ function scrollToSection(id, el) {
         link.classList.add("active-link");
       }
     });
-  });
+  }
+function loadPage(name) {
+  fetch(`/pages/${name}.html`)
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('content-area').innerHTML = html;
+      history.pushState(null, "", `#${name}`);
+    })
+    .catch(err => {
+      document.getElementById('content-area').innerHTML = "<p>Error loading page</p>";
+    });
+}
+
+// Load default based on URL hash (optional)
+window.addEventListener("DOMContentLoaded", () => {
+  const page = location.hash.replace("#", "") || "overview";
+  loadPage(page);
+});
