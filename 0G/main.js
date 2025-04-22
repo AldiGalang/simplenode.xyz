@@ -17,7 +17,7 @@ function toggleSubLinks(element) {
   if (sub) sub.classList.add('show');
 }
 
-// === SALIN TEKS DAN TAMPILKAN 'Copied!' ===
+// === SALIN TEKS DAN TAMPILKAN 'Copied!' (dengan fallback) ===
 function copyText(target) {
   console.log("🔧 copyText() triggered");
 
@@ -36,40 +36,63 @@ function copyText(target) {
 
   console.log("📋 Text to copy:", text);
 
-  navigator.clipboard.writeText(text).then(() => {
-    if (label) label.style.opacity = '1';
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text)
+      .then(() => showCopiedEffect(label, button, icon))
+      .catch(err => {
+        console.error("❌ Clipboard API failed:", err);
+      });
+  } else {
+    // Fallback method for HTTP/non-secure
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
 
-    if (button && icon) {
-      button.classList.add('success');
-      icon.innerHTML = `
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M5 13l4 4L19 7" />
-      `;
+    try {
+      document.execCommand("copy");
+      showCopiedEffect(label, button, icon);
+    } catch (err) {
+      console.error("❌ execCommand fallback failed:", err);
     }
 
-    setTimeout(() => {
-      if (label) label.style.opacity = '0';
-
-      if (button && icon) {
-        button.classList.remove('success');
-        icon.innerHTML = `
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M8 16h8a2 2 0 002-2V8a2 2 0 00-2-2H8a2 2 0 00-2 2v6a2 2 0 002 2z" />
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M16 16v1a2 2 0 002 2H8a2 2 0 01-2-2v-1" />
-        `;
-      }
-    }, 1200);
-  }).catch(err => {
-    console.error("❌ Failed to copy text:", err);
-  });
+    document.body.removeChild(textarea);
+  }
 }
 
-// === JALANKAN SAAT DOM SUDAH SIAP ===
+function showCopiedEffect(label, button, icon) {
+  if (label) label.style.opacity = '1';
+
+  if (button && icon) {
+    button.classList.add('success');
+    icon.innerHTML = `
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M5 13l4 4L19 7" />
+    `;
+  }
+
+  setTimeout(() => {
+    if (label) label.style.opacity = '0';
+
+    if (button && icon) {
+      button.classList.remove('success');
+      icon.innerHTML = `
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8 16h8a2 2 0 002-2V8a2 2 0 00-2-2H8a2 2 0 00-2 2v6a2 2 0 002 2z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M16 16v1a2 2 0 002 2H8a2 2 0 01-2-2v-1" />
+      `;
+    }
+  }, 1200);
+}
+
+// === JALANKAN SAAT DOM SIAP ===
 document.addEventListener("DOMContentLoaded", () => {
   console.log("✅ DOM loaded — JS aktif");
 
-  // Tandai link sidebar yang aktif berdasarkan halaman
   const current = window.location.pathname.split("/").filter(Boolean).pop();
   const links = document.querySelectorAll("aside a");
 
@@ -80,7 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Tambahkan event listener salin ke setiap .code-box
   document.querySelectorAll('.code-box').forEach(box => {
     box.addEventListener('click', (e) => {
       const isButton = e.target.closest('.copy-button');
