@@ -1,0 +1,50 @@
+<section id="install-section">
+  <h1>Install 0G Storage KV Node (Optional)</h1>
+
+  <div class="step">
+    <h2>Step 1: Requirements</h2>
+    <ul class="requirements">
+      <li>
+        <strong>Faucet A0GI</strong> — if you don’t have A0GI, you can claim at:
+        <a href="https://faucet.0g.ai/" target="_blank">https://faucet.0g.ai/</a>
+      </li>
+    </ul>
+
+    <hr class="divider">
+
+    <h2>Step 2: Install or Delete</h2>
+    <p>Run this script to install or delete the storage node:</p>
+
+    <div class="code-box">
+      <span class="copy-text">
+        apt install curl -y && bash <(curl -s https://raw.githubusercontent.com/AldiGalang/0g/refs/heads/main/storage-kv.sh)
+      </span>
+      <div class="copy-button" onclick="copyText(this)">
+        <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 16h8a2 2 0 002-2V8a2 2 0 00-2-2H8a2 2 0 00-2 2v6a2 2 0 002 2z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 16v1a2 2 0 002 2H8a2 2 0 01-2-2v-1" />
+        </svg>
+      </div>
+      <div class="copied-label">Copied!</div>
+    </div>
+
+    <hr class="divider">
+  </div>
+</section>
+
+<!-- Footer Navigation -->
+<div class="spacer"></div>
+<div class="navigation-buttons">
+  <a href="#" onclick="loadPage('da-node')" class="nav-button prev">
+    <span>← Previous</span>
+    <strong>DA Node</strong>
+  </a>
+
+  <a href="#" onclick="loadPage('da-client')" class="nav-button next">
+    <span>Next →</span>
+    <strong>DA Client Node</strong>
+  </a>
+</div>
