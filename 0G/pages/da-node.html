@@ -1,0 +1,81 @@
+<section id="install-section">
+  <h1>Install 0G DA Node</h1>
+
+  <div class="step">
+    <h2>Step 1: Requirements</h2>
+    <ul class="requirements">
+      <li><strong>Private Key</strong></li>
+      <li><strong>IP VPS</strong></li>
+      <li>
+        <strong>BLS Private Key</strong> (if not available, type <code>n</code> when prompted)
+      </li>
+      <li>
+        <strong>Delegate 30 A0GI to</strong>
+        <a href="https://0g.exploreme.pro/validators/0gvaloper16t8jfvqgps4fuqe8vazd0m9xyhe7srt353cscq" target="_blank">
+          This Address
+        </a>
+      </li>
+    </ul>
+
+    <hr class="divider">
+
+    <h2>Step 2: Install or Delete</h2>
+    <p>Run the following script in your VPS to install or delete the DA node:</p>
+
+    <div class="code-box">
+      <span class="copy-text">
+        apt install curl -y && bash <(curl -s https://raw.githubusercontent.com/AldiGalang/0g/refs/heads/main/da-node.sh)
+      </span>
+      <div class="copy-button" onclick="copyText(this)">
+        <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 16h8a2 2 0 002-2V8a2 2 0 00-2-2H8a2 2 0 00-2 2v6a2 2 0 002 2z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 16v1a2 2 0 002 2H8a2 2 0 01-2-2v-1" />
+        </svg>
+      </div>
+      <div class="copied-label">Copied!</div>
+    </div>
+
+    <hr class="divider">
+
+    <h2>Step 3: Check if Your Node is Running</h2>
+    <p>Check transactions here: <a href="https://chainscan-newton.0g.ai" target="_blank">https://chainscan-newton.0g.ai</a> — paste your address</p>
+    <p>For check logs you can use this:</p>
+
+    <div class="code-box">
+      <span class="copy-text">
+        sudo journalctl -u 0gda -f -o cat
+      </span>
+      <div class="copy-button" onclick="copyText(this)">
+        <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 16h8a2 2 0 002-2V8a2 2 0 00-2-2H8a2 2 0 00-2 2v6a2 2 0 002 2z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 16v1a2 2 0 002 2H8a2 2 0 01-2-2v-1" />
+        </svg>
+      </div>
+      <div class="copied-label">Copied!</div>
+    </div>
+
+    <p class="success-note">
+      🟢 <em>If you see new transactions, your node is running successfully.</em>
+    </p>
+  </div>
+</section>
+
+<!-- Footer Navigation -->
+<div class="spacer"></div>
+<div class="navigation-buttons">
+  <a href="#" onclick="loadPage('storage-node')" class="nav-button prev">
+    <span>← Previous</span>
+    <strong>Storage Node</strong>
+  </a>
+
+  <a href="#" onclick="loadPage('storage-kv')" class="nav-button next">
+    <span>Next →</span>
+    <strong>Storage KV</strong>
+  </a>
+</div>
