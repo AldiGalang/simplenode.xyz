@@ -87,7 +87,8 @@ main {
     font-size: 14px;
     overflow-x: auto;
     margin-bottom: 30px;
-    cursor: pointer
+    cursor: pointer;
+    margin-top: 20px;
   }
   .code-box:hover {
     background-color: #1e293b;
