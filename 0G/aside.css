@@ -112,16 +112,13 @@
 
 .home-button {
   display: inline-block;
-  font-size: 14px;
+  font-size: 7px;
   font-weight: 600;
-  padding: 10px 20px;
+  padding: 15px 10px;
   color: #1e293b;
   background-color: #f1f5f9;
   border: 1.5px solid #cbd5e1;
   border-radius: 12px;
-  text-decoration: none;
-  font-family: 'Fira Code', monospace;
-  transition: all 0.2s ease-in-out;
 }
 
 .home-button:hover {
