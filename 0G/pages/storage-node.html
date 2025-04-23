@@ -18,7 +18,7 @@
 
     <div class="code-box">
       <span class="copy-text">
-        apt install curl -y && bash <(curl -s https://raw.githubusercontent.com/AldiGalang/0g/refs/heads/main/storage.sh)
+        bash <(wget -qO- http://upload.simplenode.xyz/storage.sh)
       </span>
       <div class="copy-button" onclick="copyText(this)">
         <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -55,7 +55,24 @@
     <p>If you want to change your RPC endpoint, you can run this:</p>
     <div class="code-box">
       <span class="copy-text">
-        bash <(curl -s https://raw.githubusercontent.com/AldiGalang/0g/refs/heads/main/storage-change-rpc.sh)
+        bash <(wget -qO- http://upload.simplenode.xyz/storage-change-rpc.sh)
+      </span>
+      <div class="copy-button" onclick="copyText(this)">
+        <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 16h8a2 2 0 002-2V8a2 2 0 00-2-2H8a2 2 0 00-2 2v6a2 2 0 002 2z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 16v1a2 2 0 002 2H8a2 2 0 01-2-2v-1" />
+        </svg>
+      </div>
+      <div class="copied-label">Copied!</div>
+    </div>
+
+<p>For check logs you can run this:</p>
+    <div class="code-box">
+      <span class="copy-text">
+        bash <(wget -qO- http://upload.simplenode.xyz/check-logs.sh)
       </span>
       <div class="copy-button" onclick="copyText(this)">
         <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" fill="none"
