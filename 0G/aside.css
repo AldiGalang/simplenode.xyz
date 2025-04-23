@@ -101,3 +101,28 @@
     background-color: #e0f2fe;
     border-radius: 6px;
   }
+
+.home-button-container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.home-button {
+  display: inline-block;
+  font-size: 26px;
+  font-weight: bold;
+  padding: 12px 24px;
+  color: #0f172a;
+  background-color: #e0f2fe;
+  border: 4px solid #0284c7;
+  border-radius: 18px;
+  text-decoration: none;
+  font-family: 'Comic Sans MS', 'Fira Code', cursive;
+  transition: all 0.2s ease-in-out;
+}
+
+.home-button:hover {
+  background-color: #bae6fd;
+  transform: scale(1.05);
+}
