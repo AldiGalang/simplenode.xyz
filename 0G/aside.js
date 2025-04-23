@@ -18,7 +18,7 @@ function toggleSubLinks(element) {
 
 // === LOAD PAGE DINAMIS TANPA RELOAD ===
 function loadPage(name) {
-  const target = `OG/pages/${name}.html`;
+  const target = `0G/pages/${name}.html`;
   const container = document.getElementById('content-area');
   container.innerHTML = `<p class="loading">Loading <code>${name}</code>...</p>`;
 
