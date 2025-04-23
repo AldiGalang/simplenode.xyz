@@ -1,0 +1,298 @@
+/* === MAIN CONTAINER === */
+main {
+    flex-grow: 1;
+    padding: 56px 64px;
+    color: #111827;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* === HEADING UTAMA === */
+  main h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 36px;
+    border-bottom: 2px solid #d1d5db;
+    padding-bottom: 14px;
+    letter-spacing: 0.3px;
+  }
+  
+  /* === STEP CONTAINER === */
+  .step {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    margin-bottom: 56px;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .step:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  }
+  
+  .step h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #0f172a;
+  }
+  
+  .step p,
+  .step li {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #334155;
+  }
+  
+  .step a {
+    color: #2563eb;
+    text-decoration: underline;
+  }
+  
+  .requirements {
+    margin-left: 24px;
+    margin-bottom: 28px;
+    line-height: 2;
+  }
+  
+  /* === DIVIDER === */
+  .divider {
+    border: none;
+    height: 4px;
+    background: linear-gradient(to right, #e5e7eb, #94a3b8, #e5e7eb);
+    margin: 40px 0;
+    opacity: 0.95;
+    border-radius: 9999px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  }
+  
+  /* === SUCCESS NOTE === */
+  .success-note {
+    margin-top: 20px;
+    font-size: 15px;
+    color: #10b981;
+    font-weight: 500;
+  }
+  
+  /* === CODE BOX === */
+  .code-box {
+    position: relative;
+    background-color: #111827;
+    color: #f1f5f9;
+    padding: 20px 48px 20px 20px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 14px;
+    overflow-x: auto;
+    margin-bottom: 30px;
+    cursor: pointer
+  }
+  .code-box:hover {
+    background-color: #1e293b;
+  }
+  
+  .copy-button {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: #1f2937;
+    border-radius: 6px;
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  
+  .copy-button:hover {
+    background-color: #374151;
+  }
+  
+  .copy-icon {
+    width: 18px;
+    height: 18px;
+    color: #facc15;
+  }
+  
+  
+  .copied-label {
+    position: absolute;
+    top: 50%;
+    right: 48px; /* jarak dari ikon */
+    transform: translateY(-50%);
+    background: #10b981;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    z-index: 999;
+  }
+  
+  /* === RESET TEKS === */
+  main h1,
+  main h2,
+  main p,
+  main li,
+  main strong,
+  main code {
+    color: #1f2937;
+  }
+  
+  main a {
+    color: #2563eb;
+    text-decoration: underline;
+  }
+  
+  /* Spacer agar jarak fleksibel */
+.spacer {
+    flex-grow: 1;
+    height: 20px; /* Kamu bisa atur 20-60px tergantung kebutuhan */
+  }
+  
+  /* Container tombol navigasi */
+  .navigation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+  
+  /* Tombol navigasi */
+  .nav-button {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 24px;
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    width: 220px;
+    text-align: center;
+  }
+  
+  .nav-button:hover {
+    background-color: #2d3748;
+  }
+  
+  .nav-button span {
+    font-size: 14px;
+    color: #9ca3af;
+  }
+  
+  .nav-button strong {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f9fafb;
+  }
+  
+  .active-link {
+    font-weight: bold;
+    color: #1d4ed8 !important;
+    background-color: #e0f2fe;
+    border-radius: 6px;
+  }
+
+.node-spec-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 30px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  }
+  
+  /* === HEADER TABEL === */
+  .node-spec-table thead {
+    background-color: #f8fafc;
+    color: #1e293b;
+    border-bottom: 2px solid #94a3b8;
+  }
+  
+  .node-spec-table thead th {
+    padding: 16px 20px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 16px;
+    border-right: 1px solid #e2e8f0;
+  }
+  
+  .node-spec-table thead th:last-child {
+    border-right: none;
+  }
+  
+  /* === ISI TABEL === */
+  .node-spec-table tbody td {
+    padding: 16px 20px;
+    font-size: 14px;
+    color: #374151;
+    border-bottom: 1px solid #cbd5e1;
+    border-right: 1px solid #e2e8f0;
+  }
+  
+  .node-spec-table tbody td:last-child {
+    border-right: none;
+  }
+  
+  /* === WARNA BARIS GENAP === */
+  .node-spec-table tbody tr:nth-child(even) {
+    background-color: #f9fafb;
+  }
+  
+  /* === HOVER EFEK === */
+  .node-spec-table tbody tr:hover {
+    background-color: #e2e8f0;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  /* === RESPONSIF MOBILE === */
+  @media (max-width: 768px) {
+    .node-spec-table thead {
+      display: none;
+    }
+  
+    .node-spec-table, 
+    .node-spec-table tbody, 
+    .node-spec-table tr, 
+    .node-spec-table td {
+      display: block;
+      width: 100%;
+    }
+  
+    .node-spec-table tr {
+      margin-bottom: 15px;
+      background-color: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 12px;
+    }
+  
+    .node-spec-table td {
+      text-align: left;
+      padding: 8px 12px;
+      border: none;
+      border-bottom: 1px solid #e5e7eb;
+      position: relative;
+      padding-left: 40%;
+    }
+  
+    .node-spec-table td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 12px;
+      top: 8px;
+      font-weight: bold;
+      color: #6b7280;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+  }
