@@ -16,9 +16,9 @@ function toggleSubLinks(element) {
   if (sub) sub.classList.add('show');
 }
 
-// === LOAD PAGE DINAMIS TANPA RELOAD ===
+// === LOAD PAGE SECARA DINAMIS TANPA RELOAD ===
 function loadPage(name) {
-  const target = `0G/pages/${name}.html`;
+  const target = `pages/${name}.html`; // ⬅️ PENTING: tidak pakai "0G/pages/..." karena index.html ada di /0G/
   const container = document.getElementById('content-area');
   container.innerHTML = `<p class="loading">Loading <code>${name}</code>...</p>`;
 
@@ -40,7 +40,7 @@ function loadPage(name) {
         }
       });
 
-      // Rebind tombol copy (jika tersedia fungsi copyText)
+      // Aktifkan tombol salin jika ada
       if (typeof copyText === "function") {
         document.querySelectorAll('.code-box').forEach(box => {
           const button = box.querySelector('.copy-button');
@@ -56,7 +56,7 @@ function loadPage(name) {
     });
 }
 
-// === LOAD DEFAULT PAGE SAAT PERTAMA KALI BUKA ATAU RELOAD ===
+// === LOAD DEFAULT PAGE SAAT HALAMAN DIAKSES PERTAMA KALI / DIRELOAD ===
 document.addEventListener("DOMContentLoaded", () => {
   const defaultPage = location.hash.replace("#", "") || "overview";
   loadPage(defaultPage);
