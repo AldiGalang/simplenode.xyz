@@ -1,0 +1,90 @@
+<section id="install-section">
+  <h1>Overview 0G Node</h1>
+
+  <div class="step">
+    <h2>About 0G</h2>
+    <p>0G is the largest AI Layer 1 ecosystem, backed by $325M in funding and powered by the fastest decentralized AI Operating System (DeAIOS). With multiple node types to choose from—Validator, Storage, DA, and more—0G makes it easy for anyone to get involved and support a next-gen AI infrastructure. Each node plays a vital role in keeping the network fast, decentralized, and secure, offering a unique chance to be part of a cutting-edge movement shaping the future of AI onchain.</p>
+
+    <hr class="divider">
+
+    <h2>Rent VPS</h2>
+    <p>To run a 0G node, you’ll need a VPS (Virtual Private Server), which can be easily rented from :</p>
+    <h3>1. <a href="https://www.ovhcloud.com/en/bare-metal/prices/">OVHcloud</a></h3> 
+    <h3>2. <a href="https://www.hetzner.com/">Hetzner</a></h3>
+
+    <hr class="divider">
+
+    <h2>Specification</h2>
+    <table class="node-spec-table">
+      <thead>
+        <tr>
+          <th>Node Type</th>
+          <th>Description</th>
+          <th>Memory</th>
+          <th>CPU</th>
+          <th>Disk</th>
+          <th>Bandwidth</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Validator Node</td>
+          <td>Validates transactions and maintains network consensus</td>
+          <td>64 GB</td>
+          <td>8 cores</td>
+          <td>1 TB NVME SSD (4 TB on Testnet)</td>
+          <td>100 MBps</td>
+        </tr>
+        <tr>
+          <td>Storage Node</td>
+          <td>Stores data within the OG network</td>
+          <td>16 GB</td>
+          <td>4 cores</td>
+          <td>500GB / 1T NVME SSD</td>
+          <td>500 MBps</td>
+        </tr>
+        <tr>
+          <td>Storage KV</td>
+          <td>Handles key-value storage operations</td>
+          <td>4 GB</td>
+          <td>2 cores</td>
+          <td>Matches KV streams size</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>DA Node</td>
+          <td>Performs blob data verification, signing, and storage</td>
+          <td>16 GB</td>
+          <td>8 cores</td>
+          <td>1 TB NVME SSD</td>
+          <td>100 MBps</td>
+        </tr>
+        <tr>
+          <td>DA Retriever</td>
+          <td>Retrieves data availability information</td>
+          <td>8 GB</td>
+          <td>2 cores</td>
+          <td>-</td>
+          <td>100 MBps</td>
+        </tr>
+        <tr>
+          <td>DA Client</td>
+          <td>Interacts with the Data Availability layer</td>
+          <td>8 GB</td>
+          <td>2 cores</td>
+          <td>-</td>
+          <td>100 MBps</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Footer Navigation -->
+<div class="spacer"></div>
+<div class="navigation-buttons">
+  <a href="#" onclick="loadPage('storage-node')" class="nav-button next">
+    <span>Next →</span>
+    <strong>Storage Node</strong>
+  </a>
+</div>
