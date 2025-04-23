@@ -101,3 +101,9 @@
     background-color: #e0f2fe;
     border-radius: 6px;
   }
+
+.loading {
+  font-style: italic;
+  color: #aaa;
+  padding: 1em;
+}
