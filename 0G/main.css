@@ -76,7 +76,7 @@ main {
     font-weight: 500;
   }
   
-  /* === CODE BOX === */
+    /* === CODE BOX === */
   .code-box {
     position: relative;
     background-color: #111827;
@@ -87,8 +87,7 @@ main {
     font-size: 14px;
     overflow-x: auto;
     margin-bottom: 30px;
-    cursor: pointer;
-    margin-top: 20px;
+    cursor: pointer
   }
   .code-box:hover {
     background-color: #1e293b;
@@ -117,22 +116,21 @@ main {
   
   
   .copied-label {
-  position: absolute;
-  bottom: 100%; /* muncul di atas tombol */
-  right: 0;
-  margin-bottom: 8px;
-  background: #10b981;
-  color: white;
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 12px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  transform: translateY(5px);
-  white-space: nowrap;
-  z-index: 999;
-}
+    position: absolute;
+    top: 50%;
+    right: 48px; /* jarak dari ikon */
+    transform: translateY(-50%);
+    background: #10b981;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    z-index: 999;
+  }
 
   
   /* === RESET TEKS === */
