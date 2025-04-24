@@ -119,3 +119,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+function showCopiedEffect(label, button, icon) {
+  if (label) {
+    label.style.opacity = '1';
+    label.style.transform = 'translateY(0px)';
+  }
+
+  if (button && icon) {
+    button.classList.add('success');
+    icon.innerHTML = `
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M5 13l4 4L19 7" />
+    `;
+  }
+
+  setTimeout(() => {
+    if (label) {
+      label.style.opacity = '0';
+      label.style.transform = 'translateY(5px)';
+    }
+
+    if (button && icon) {
+      button.classList.remove('success');
+      icon.innerHTML = `
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8 16h8a2 2 0 002-2V8a2 2 0 00-2-2H8a2 2 0 00-2 2v6a2 2 0 002 2z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M16 16v1a2 2 0 002 2H8a2 2 0 01-2-2v-1" />
+      `;
+    }
+  }, 1200);
+}
