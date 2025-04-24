@@ -43,7 +43,6 @@ function copyText(target) {
         console.error("❌ Clipboard API failed:", err);
       });
   } else {
-    // Fallback method for HTTP/non-secure
     const textarea = document.createElement("textarea");
     textarea.value = text;
     textarea.style.position = "fixed";
@@ -103,19 +102,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-   document.querySelectorAll('.code-box').forEach(box => {
-    box.addEventListener('click', (e) => {
-      const isButton = e.target.closest('.copy-button');
-      if (!isButton) {
-        copyText(box);
-      }
+  // Salin teks saat klik code-box atau ikon
+  document.querySelectorAll('.code-box').forEach(box => {
+    // Klik seluruh kotak
+    box.addEventListener('click', () => {
+      copyText(box);
     });
 
+    // Klik ikon (hindari klik ganda)
     const button = box.querySelector('.copy-button');
     if (button) {
       button.addEventListener('click', (e) => {
-        e.stopPropagation(); // ⛔ penting untuk mencegah event dobel
-        copyText(box);       // ✅ gunakan box, bukan button
+        e.stopPropagation();
+        copyText(box);
       });
     }
   });
+});
