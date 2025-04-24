@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  document.querySelectorAll('.code-box').forEach(box => {
+   document.querySelectorAll('.code-box').forEach(box => {
     box.addEventListener('click', (e) => {
       const isButton = e.target.closest('.copy-button');
       if (!isButton) {
@@ -113,9 +113,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const button = box.querySelector('.copy-button');
     if (button) {
-      button.addEventListener('click', () => {
-        copyText(button);
+      button.addEventListener('click', (e) => {
+        e.stopPropagation(); // ⛔ penting untuk mencegah event dobel
+        copyText(box);       // ✅ gunakan box, bukan button
       });
     }
   });
-});
