@@ -118,7 +118,7 @@ main {
   
   .copied-label {
     position: absolute;
-    top: 50%;
+    top: -30px;
     right: 48px; /* jarak dari ikon */
     transform: translateY(-50%);
     background: #10b981;
