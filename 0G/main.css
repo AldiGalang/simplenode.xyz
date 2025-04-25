@@ -306,7 +306,7 @@ main {
       gap: 10px;
     }
     
-    .hashtag {
+.section-title .hashtag {
   font-size: 2.2rem;
   color: #3b82f6 !important;
   font-weight: bold;
